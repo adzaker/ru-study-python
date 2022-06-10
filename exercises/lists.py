@@ -7,7 +7,16 @@ class ListExercise:
         :param input_list: Исходный список
         :return: Список с замененными элементами
         """
-        pass
+        if len(input_list) == 0:
+            return input_list
+
+        replaced_list = []
+        max_value = max(input_list)
+        for number in input_list:
+            replaced_value = (number, max_value)[number > 0]
+            replaced_list.append(replaced_value)
+
+        return replaced_list
 
     @staticmethod
     def search(input_list: list[int], query: int) -> int:
@@ -15,7 +24,13 @@ class ListExercise:
         Реализовать двоичный поиск
         Функция должна возвращать индекс элемента
         :param input_list: Исходный список
-        :param query:
+        :param query: Искомый элемент
         :return: Номер элемента
         """
-        pass
+        index = 0
+        while index < len(input_list):
+            if input_list[index] == query:
+                return index
+            index += 1
+
+        return -1
